@@ -47,6 +47,9 @@ gem 'slim_lint', require: false
 # Configurable tool for writing clean and consistent SCSS
 gem 'scss_lint', require: false
 
+# Flexible authentication solution for Rails with Warden
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

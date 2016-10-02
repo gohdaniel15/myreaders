@@ -1,0 +1,8 @@
+- flash.each do |msg_type, msg|
+  div class="alert #{flash_message_css_class(msg_type)} alert-dismissible text-center" role='alert'
+    button.close data-dismiss='alert'
+      span aria-hidden=true
+        | &times;
+      span.sr-only
+        close
+    = msg

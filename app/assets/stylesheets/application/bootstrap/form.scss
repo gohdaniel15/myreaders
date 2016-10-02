@@ -1,0 +1,24 @@
+.simple_form {
+
+  .form-group { margin-bottom: 50px; }
+
+  .form-control.string,
+  .form-control.password,
+  .input-group-addon {
+
+    @include box-shadow(none);
+    background: none;
+    border: 0;
+    border-bottom: 1px solid $black;
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: bolder;
+
+  }
+
+  .control-label {
+    color: $dark-blue;
+    font-size: 14px;
+  }
+
+}
