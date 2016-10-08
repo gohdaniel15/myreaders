@@ -363,20 +363,20 @@ $input-height-base: 50px;
 // //##
 
 // // Basics of a navbar
-// $navbar-height:                    80px !default;
+$navbar-height:                    60px !default;
 // $navbar-margin-bottom:             $line-height-computed !default;
-// $navbar-border-radius:             $border-radius-base !default;
+$navbar-border-radius:             0 !default;
 // $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 // $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 // $navbar-collapse-max-height:       340px !default;
 
 // $navbar-default-color:             #777 !default;
-// $navbar-default-bg: transparent !default;
-// $navbar-default-border: none !default;
+$navbar-default-bg: #27b8d7 !default;
+$navbar-default-border: none !default;
 
 // // Navbar links
-// $navbar-default-link-color: #5e7c86 !default;
-// $navbar-default-link-hover-color:          #333 !default;
+$navbar-default-link-color: #000 !default;
+$navbar-default-link-hover-color:          #fff !default;
 // $navbar-default-link-hover-bg:             transparent !default;
 // $navbar-default-link-active-color:         #555 !default;
 // $navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;

@@ -14,7 +14,9 @@ html
 
   body lang='en' class=css_class_for_controller_action(controller)
 
+    = render partial: 'header'
     = render 'common/flash_messages'
     = yield
+    = render 'facilitators/sessions/form_modal'
 
     = javascript_include_tag :application, 'data-turbolinks-track': true, 'data-turbolinks-eval': false, defer: 'defer'
