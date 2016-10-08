@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get '/home', to: 'pages#home'
+  get '/login/', to: 'pages#login'
 
   # namespace :admin do
   # end
