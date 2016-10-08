@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  # root to: 'admins/sessions#new'
-
   devise_for :admins, controllers: { registrations: 'admins/registrations', sessions: 'admins/sessions' }
+  devise_for :facilitators, controllers: { registrations: 'facilitators/registrations', sessions: 'facilitators/sessions' }
+  root to: 'pages#home'
 
-  # devise_for :facilitator
+  get '/home', to: 'pages#home'
 
   # namespace :admin do
   # end
