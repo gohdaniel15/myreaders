@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  # root to: 'admins/sessions#new'
-
   devise_for :admins, controllers: { registrations: 'admins/registrations', sessions: 'admins/sessions' }
+  devise_for :facilitators, controllers: { registrations: 'admins/registrations', sessions: 'admins/sessions' }
+  # root to: 'admins/sessions#new'
 
   # devise_for :facilitator
 

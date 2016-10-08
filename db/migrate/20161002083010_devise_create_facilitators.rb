@@ -1,6 +1,6 @@
-class DeviseCreateAdmins < ActiveRecord::Migration
+class DeviseCreateFacilitators < ActiveRecord::Migration
   def change
-    create_table :admins do |t|
+    create_table :facilitators do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -33,7 +33,10 @@ class DeviseCreateAdmins < ActiveRecord::Migration
       t.string :name, null: false
       t.string :mobile_number
       t.date :birthdate
+      t.string :project
+      t.string :description
 
+      ## Invitable
       t.string   :invitation_token
       t.datetime :invitation_created_at
       t.datetime :invitation_sent_at
@@ -45,11 +48,11 @@ class DeviseCreateAdmins < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :admins, :email,                unique: true
-    add_index :admins, :reset_password_token, unique: true
-    add_index :admins, :invitation_token, :unique => true
+    add_index :facilitators, :email,                unique: true
+    add_index :facilitators, :reset_password_token, unique: true
+    add_index :facilitators, :invitation_token, :unique => true
 
-    # add_index :admins, :confirmation_token,   unique: true
-    # add_index :admins, :unlock_token,         unique: true
+    # add_index :facilitators, :confirmation_token,   unique: true
+    # add_index :facilitators, :unlock_token,         unique: true
   end
 end
