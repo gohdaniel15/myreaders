@@ -1,0 +1,24 @@
+.container
+  .row.text-center
+    .col-md-6.col-md-offset-3
+      h2 Please update your information to create your account!
+
+  .row
+    .col-md-6.col-md-offset-3
+      = simple_form_for resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put } do |f|
+        = f.error_notification
+        = devise_error_messages!
+        = f.hidden_field :invitation_token
+
+        .row
+          .col-md-6
+            = f.input :name, placeholder: 'e.g John Smith'
+          .col-md-6
+            = f.input :mobile_number, placeholder: 'e.g +601712341234'
+
+        = f.input :birthdate, as: :string, input_html: { class: 'datetimepicker' }
+        = f.input :project, label: 'School/Project Name', placeholder: "'SMK Merbok' or 'Project READ, Jalan Besar Community Home'"
+        = f.input :password
+        = f.input :password_confirmation
+
+        = f.button :submit, 'Accept my invitation', class: 'btn btn-primary btn-lg col-xs-12'

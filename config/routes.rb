@@ -11,11 +11,11 @@ Rails.application.routes.draw do
     root 'pages#home'
   end
 
-  # namespace :facilitator do
-  #
-  #   resources :programs
-  #   resources :training
-  #
-  # end
+  namespace :facilitator do
+    root 'pages#home'
+    # resources :programs
+    # resources :training
+
+  end
 
 end
