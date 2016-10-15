@@ -38,6 +38,10 @@ gem 'jbuilder', '~> 2.0'
 # Provides easy form for rails
 gem 'simple_form'
 
+# Enabling datetime picker for forms
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.42'
+
 # HTML template for Ruby Code
 gem 'sdoc', '~> 0.4.0', group: :doc
 

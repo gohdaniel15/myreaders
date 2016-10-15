@@ -1,0 +1,23 @@
+header#header
+
+  .navbar.navbar-default
+    .container
+
+      .navbar-header
+        button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#header .navbar-collapse" aria-expanded="false"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to root_path, class: 'navbar-brand' do
+          = image_tag 'my-readers.svg', alt: 'My Readers Logo'
+
+
+      .collapse.navbar-collapse
+
+        .navbar-right
+
+          ul.nav.navbar-nav
+            li = link_to 'Invite Facilitators', new_facilitator_invitation_path
+            li = link_to 'Invite Admins', new_admin_invitation_path
+            li = link_to 'Logout', destroy_admin_session_path

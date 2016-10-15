@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20161008070145) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "name",                                null: false
+    t.string   "name"
     t.string   "mobile_number"
     t.date     "birthdate"
     t.datetime "created_at",                          null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20161008070145) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.string   "name",                                null: false
+    t.string   "name"
     t.string   "mobile_number"
     t.date     "birthdate"
     t.string   "project"

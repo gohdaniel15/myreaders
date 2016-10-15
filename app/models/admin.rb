@@ -1,5 +1,7 @@
 class Admin < ActiveRecord::Base
 
+  include DeviseInvitable::Inviter
+
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :invitable
 
