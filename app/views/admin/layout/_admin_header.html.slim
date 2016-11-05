@@ -20,4 +20,4 @@ header#header
           ul.nav.navbar-nav
             li = link_to 'Invite Facilitators', new_facilitator_invitation_path
             li = link_to 'Invite Admins', new_admin_invitation_path
-            li = link_to 'Logout', destroy_admin_session_path
+            li = link_to 'Logout', destroy_admin_session_path, method: 'delete'
