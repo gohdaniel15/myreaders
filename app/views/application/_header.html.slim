@@ -20,4 +20,7 @@ header#header
           ul.nav.navbar-nav
             li = link_to 'Button 1', '#'
             li = link_to 'Button 2', '#'
-            li = link_to 'Login', new_facilitator_session_path, remote: true
+            - if current_facilitator
+              li = link_to 'Logout', destroy_facilitator_session_path, method: 'delete', remote: true
+            - else
+              li = link_to 'Login', new_facilitator_session_path, remote: true
