@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.0'
 
 # Provides easy form for rails
 gem 'simple_form'
+gem 'cocoon'
 
 # Enabling datetime picker for forms
 gem 'momentjs-rails', '>= 2.9.0'

@@ -16,4 +16,5 @@
 #= require bootstrap-datetimepicker
 #= require jquery_ujs
 #= require turbolinks
+#= require cocooon
 #= require_tree .
