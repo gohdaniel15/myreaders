@@ -1,0 +1,6 @@
+= simple_form_for project, url: facilitator_projects_path(current_facilitator), method: 'create' do |form|
+  = form.error_notification
+  = form.input :name
+  = form.input :location
+  = form.input :start_on, as: :string, input_html: { class: 'datetimepicker' }, label: 'Project Start Date'
+  = form.button :submit, class: 'btn btn-primary col-xs-12'

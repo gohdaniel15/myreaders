@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :facilitator do
     root 'pages#home'
-    resources :projects
+    resources :projects, only: [:index, :show, :new, :create, :edit, :update]
   end
 
 end

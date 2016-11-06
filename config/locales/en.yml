@@ -20,4 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  facilitator:
+    projects:
+      create:
+        success: You have successfully created a project!
