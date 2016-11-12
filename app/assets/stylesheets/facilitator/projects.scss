@@ -1,0 +1,17 @@
+.facilitator_projects.new {
+  #students {
+
+    text-align: center;
+
+    .trash-btn { margin-top: 10px; }
+
+    .form-group {
+      input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid;
+        box-shadow: none;
+      }
+    }
+  }
+}

@@ -1,6 +1,10 @@
 .container
   .row
-    .col-md-12
+    .col-md-10.col-md-offset-1
       h2 New Project
-
-      = render 'form', project: @project
+      = simple_form_for @project_creation_form, url: facilitator_projects_path(current_facilitator) do |form|
+        = form.error_notification
+        = form.simple_fields_for :project do |project|
+          = render 'form', project: project
+        hr
+        = form.submit 'Create Project', class: 'btn btn-primary btn-block'

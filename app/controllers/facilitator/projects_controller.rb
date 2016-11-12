@@ -7,12 +7,12 @@ class Facilitator::ProjectsController < Facilitator::BaseController
   end
 
   def new
-    @project = Project.new
+    @project_creation_form = ProjectCreationForm.new(current_facilitator)
   end
 
   def create
-    @project = current_facilitator.projects.build(project_creation_params)
-    if @project.save
+    @project_creation_form = ProjectCreationForm.new(current_facilitator, project_creation_params)
+    if @project_creation_form.save
       redirect_to root_path, flash: { success: t('.success') }
     else
       render :new
@@ -32,7 +32,7 @@ class Facilitator::ProjectsController < Facilitator::BaseController
   end
 
   def project_creation_params
-    params.require(:project).permit(:name, :location, :start_on)
+    params.require(:project_creation_form).permit(project_attributes: [:name, :location, :start_on, student_attributes: [:id, :name, :class_name, :birthday, :comments, :_destroy]])
   end
 
 end

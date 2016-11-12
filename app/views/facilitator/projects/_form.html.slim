@@ -1,10 +1,20 @@
 .row
-  = simple_form_for project, url: facilitator_projects_path(current_facilitator), method: 'create' do |form|
-    .col-md-6
-      = form.error_notification
-      = form.input :name
-      = form.input :location
-      = form.input :start_on, as: :string, input_html: { class: 'datetimepicker' }, label: 'Project Start Date'
-      = form.button :submit, class: 'btn btn-primary col-xs-12'
+  .col-md-12
+    .row
+      .col-md-6
+        = project.input :name
+      .col-md-6
+        = project.input :location
+    .row
+      .col-md-12
+        = project.input :start_on, as: :string, input_html: { class: 'datetimepicker' }, label: 'Project Start Date'
 
-    .col-md-6
+.row
+  .col-md-12
+    #students
+      h2 Add students
+      = project.simple_fields_for :students do |student|
+          = render 'student_fields', f: student
+
+    .links
+      = link_to_add_association 'Add a student', project, :students, 'data-association-insertion-node': '#students', 'data-association-insertion-position': 'append', class: 'btn btn-warning btn-block col-md-6'
