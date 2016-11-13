@@ -4,12 +4,13 @@ class ProjectCreationForm < BaseForm
 
   delegate :attributes=, to: :project, prefix: true
 
-  # validate :project_is_valid
+  validate :project_is_valid
 
   def initialize(facilitator, params = {})
     @facilitator = facilitator
-    @project = @facilitator.projects.build
+    @project = @facilitator.projects.new
     super(params)
+    @project.students.build if @project.students.blank?
   end
 
   def save
