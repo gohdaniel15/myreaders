@@ -1,0 +1,32 @@
+.container
+  .row
+    .col-xs-12
+      - @projects.each do |project|
+        .panel.panel-default
+          .panel-body
+            .col-sm-3
+              .project-title
+                p = project.name.titleize
+              .project-sessions.text-center
+                h1 23
+                p Number of sessions
+              .project-reading-progress.text-center
+                h1 Primary 3
+                p Average reading progress
+            .col-sm-9
+              table.table.table-striped
+                thead
+                  tr
+                    th
+                    th Name
+                    th Class
+                    th Birthday
+                    th Comments
+                tbody
+                  - project.students.each.with_index(1) do |student, index|
+                    tr
+                      td = index
+                      td = student.name
+                      td = student.class_name
+                      td = student.birthday
+                      td = student.comments
