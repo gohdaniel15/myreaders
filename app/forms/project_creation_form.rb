@@ -14,6 +14,7 @@ class ProjectCreationForm < BaseForm
   end
 
   def save
+    @project.students.first.destroy if @project.students.first.name.nil?
     @project.save if valid?
     errors.empty?
   end

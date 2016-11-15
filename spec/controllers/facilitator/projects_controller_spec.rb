@@ -25,17 +25,17 @@ RSpec.describe Facilitator::ProjectsController, type: :controller do
       before { get :new }
 
       it { is_expected.to render_template(:new) }
-      it { expect(assigns(:project)).to be_a(Project) }
+      it { expect(assigns(:project_creation_form)).to be_a(ProjectCreationForm) }
 
     end
 
     describe 'POST #create' do
 
-      before { post :create, project: params }
+      before { post :create, project_creation_form: params }
 
       context 'when params are valid' do
 
-        let(:params) { attributes_for(:project) }
+        let(:params) { { project_attributes: attributes_for(:project) } }
 
         it { is_expected.to redirect_to(root_path) }
         it { is_expected.to set_flash[:success] }
@@ -44,7 +44,7 @@ RSpec.describe Facilitator::ProjectsController, type: :controller do
 
       context 'when params are invalid' do
 
-        let(:params) { attributes_for(:project, :invalid) }
+        let(:params) { { project_attributes: attributes_for(:project, :invalid) } }
 
         it { is_expected.to render_template(:new) }
 

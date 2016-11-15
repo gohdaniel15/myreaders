@@ -9,7 +9,7 @@ class Project < ActiveRecord::Base
   validates :location, presence: true
   validates :start_on, presence: true
   validates :status, presence: true
-  validates_associated :students
+  # validates_associated :students
 
   enum status: [:inactive, :active]
 
