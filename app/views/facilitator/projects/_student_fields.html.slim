@@ -1,0 +1,13 @@
+.nested-fields
+  .row
+    .col-xs-3
+      = f.input :name, label: false, placeholder: 'Name'
+    .col-xs-2
+      = f.input :class_name, label: false, placeholder: 'Class'
+    .col-xs-3
+      = f.input :birthday, as: :string, input_html: { class: 'datetimepicker' }, label: false, placeholder: 'Birthday'
+    .col-xs-3
+      = f.input :comments, as: :string, label: false, placeholder: 'Comments'
+    .trash-btn.pull-right
+      = link_to_remove_association f, class: 'btn btn-warning' do
+        = fa_icon 'trash-o'

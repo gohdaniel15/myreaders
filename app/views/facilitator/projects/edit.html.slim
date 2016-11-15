@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      h2 New Project
+      = simple_form_for @project_modification_form, url: facilitator_project_path(@project_modification_form.project), method: :put do |form|
+        = form.error_notification
+        = form.simple_fields_for :project do |project|
+          = render 'form', project: project
+        hr
+        = form.submit 'Save Project', class: 'btn btn-primary btn-block'

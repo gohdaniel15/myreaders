@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-sm-6
+      .panel.panel-default.project-panel
+        .panel-body
+          - @projects.each do |project|
+            .project-header
+              p.pull-left = project.name.titleize
+              .dropdown.pull-right
+                = fa_icon :cog, data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'dropdownMenu1'
+                ul.dropdown-menu.list-group
+                  li = link_to 'Edit project details', edit_facilitator_project_path(project)
+            .clearfix
+            .project-sessions.text-center
+              h1
+              p Number of sessions
+            .project-reading-progress.text-center
+              h1
+              p Average reading progress
+
+    .col-sm-6
+      .panel.panel-default
+        .panel-heading
+          |  Newsfeed
+        .panel-body

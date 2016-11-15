@@ -19,8 +19,9 @@ Shoulda::Matchers.configure do |config|
 end
 
 RSpec.configure do |config|
- config.include FactoryGirl::Syntax::Methods
- config.use_transactional_fixtures = true
- config.infer_spec_type_from_file_location!
- config.filter_rails_from_backtrace!
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include FactoryGirl::Syntax::Methods
+  config.use_transactional_fixtures = true
+  config.infer_spec_type_from_file_location!
+  config.filter_rails_from_backtrace!
 end

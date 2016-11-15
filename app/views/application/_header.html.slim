@@ -18,7 +18,7 @@ header#header
         .navbar-right
 
           ul.nav.navbar-nav
-            li = link_to 'Button 1', '#'
+            li = link_to 'Projects', facilitator_projects_path
             li = link_to 'Button 2', '#'
             - if current_facilitator
               li = link_to 'Logout', destroy_facilitator_session_path, method: 'delete', remote: true

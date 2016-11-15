@@ -50,6 +50,7 @@ GEM
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (9.0.5)
+    cocoon (1.2.9)
     codeclimate-test-reporter (0.6.0)
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.1)
@@ -85,6 +86,8 @@ GEM
       factory_girl (~> 4.7.0)
       railties (>= 3.0.0)
     ffi (1.9.14)
+    font-awesome-rails (4.7.0.0)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -265,12 +268,14 @@ DEPENDENCIES
   bootstrap-sass
   bootstrap3-datetimepicker-rails (~> 4.17.42)
   byebug
+  cocoon
   codeclimate-test-reporter
   coffee-rails (~> 4.1.0)
   devise
   devise_invitable
   dotenv-rails
   factory_girl_rails
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   momentjs-rails (>= 2.9.0)
