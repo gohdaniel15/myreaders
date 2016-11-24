@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106083414) do
+ActiveRecord::Schema.define(version: 20161115145453) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,17 @@ ActiveRecord::Schema.define(version: 20161106083414) do
   add_index "admins", ["invitations_count"], name: "index_admins_on_invitations_count", using: :btree
   add_index "admins", ["invited_by_id"], name: "index_admins_on_invited_by_id", using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "session_id"
+    t.integer  "student_id"
+    t.boolean  "presence",   default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "attendances", ["session_id"], name: "index_attendances_on_session_id", using: :btree
+  add_index "attendances", ["student_id"], name: "index_attendances_on_student_id", using: :btree
 
   create_table "facilitators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -95,6 +106,15 @@ ActiveRecord::Schema.define(version: 20161106083414) do
 
   add_index "projects", ["facilitator_id"], name: "index_projects_on_facilitator_id", using: :btree
 
+  create_table "sessions", force: :cascade do |t|
+    t.integer  "project_id"
+    t.date     "date",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "sessions", ["project_id"], name: "index_sessions_on_project_id", using: :btree
+
   create_table "students", force: :cascade do |t|
     t.integer  "project_id"
     t.string   "name",       null: false
@@ -107,6 +127,9 @@ ActiveRecord::Schema.define(version: 20161106083414) do
 
   add_index "students", ["project_id"], name: "index_students_on_project_id", using: :btree
 
+  add_foreign_key "attendances", "sessions"
+  add_foreign_key "attendances", "students"
   add_foreign_key "projects", "facilitators"
+  add_foreign_key "sessions", "projects"
   add_foreign_key "students", "projects"
 end

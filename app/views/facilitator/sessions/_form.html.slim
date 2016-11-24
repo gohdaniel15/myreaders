@@ -1,0 +1,22 @@
+.row
+  .col-md-12
+    = session.input :date, as: :string, input_html: { class: 'datetimepicker' }, label: 'Session Date'
+
+.row
+  .col-md-12
+    #attendance
+      h2 Attendance
+      table.table.table-striped
+        thead
+          tr
+            th
+            th Name
+            th Class
+            th = check_box_tag 'selectAll', 'selectAll'
+        tbody
+          = session.simple_fields_for :attendances do |attendance|
+            tr
+              td = attendance.hidden_field :student_id
+              td = attendance.object.student.name
+              td = attendance.object.student.class_name
+              td = attendance.input :presence, label: false, class: 'checkbox'

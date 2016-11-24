@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-10.col-md-offset-1
+      h2 New Session
+      = simple_form_for @form, url: facilitator_project_sessions_path do |form|
+        = form.error_notification
+        = form.simple_fields_for :session do |session|
+          = render 'form', session: session
+        hr
+        = form.submit 'Create Session', class: 'btn btn-primary btn-block'

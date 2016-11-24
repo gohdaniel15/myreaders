@@ -1,32 +1,38 @@
-.container
+.container.container-top
   .row
     .col-xs-12
       - @projects.each do |project|
         .panel.panel-default
           .panel-body
-            .col-sm-3
-              .project-title
-                p = project.name.titleize
-              .project-sessions.text-center
-                h1
-                p Number of sessions
-              .project-reading-progress.text-center
-                h1
-                p Average reading progress
-            .col-sm-9
-              table.table.table-striped
-                thead
-                  tr
-                    th
-                    th Name
-                    th Class
-                    th Birthday
-                    th Comments
-                tbody
-                  - project.students.each.with_index(1) do |student, index|
+            .row
+              .col-xs-12
+                .project-title
+                p.pull-left = project.name.titleize
+                = link_to 'Add session', new_facilitator_project_session_path(project), class: 'btn btn-primary pull-right'
+                = link_to 'View project', facilitator_project_path(project), class: 'btn btn-success pull-right'
+            hr
+            .row
+              .col-sm-3
+                .project-sessions.text-center
+                  h1 = project.sessions.count
+                  p Number of sessions
+                .project-reading-progress.text-center
+                  h1
+                  p Average reading progress
+              .col-sm-9
+                table.table.table-striped
+                  thead
                     tr
-                      td = index
-                      td = student.name
-                      td = student.class_name
-                      td = student.birthday
-                      td = student.comments
+                      th
+                      th Name
+                      th Class
+                      th Total sessions attended
+                      th Comments
+                  tbody
+                    - project.students.each.with_index(1) do |student, index|
+                      tr
+                        td = index
+                        td = student.name
+                        td = student.class_name
+                        td = student.attendances.where(presence: true).count
+                        td = student.comments
