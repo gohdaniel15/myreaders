@@ -1,8 +1,8 @@
 .container-fluid
   .row
     .col-xs-12
-      = simple_form_for @resource, as: resource_name, url: session_path(resource_name) do |f|
-        = f.error_notification
+      = simple_form_for @resource, url: facilitator_session_path, remote: true do |f|
+        = f.error_notification(message: @resource.errors[:base].to_sentence)
 
         .form-inputs
           = f.input :email, wrapper: :vertical_input_group do

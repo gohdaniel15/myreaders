@@ -2,4 +2,13 @@
 
   .project-panel > .panel-body > .project-title { margin-top: 0; }
 
+  .notice {
+    font-size: 25px;
+    margin: 25px 0;
+  }
+
+  .hoverable:hover {
+    color: $medium-blue;
+  }
+
 }

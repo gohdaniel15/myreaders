@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :admins, controllers: { registrations: 'admins/registrations', sessions: 'admins/sessions', invitations: 'admins/invitations' }
-  devise_for :facilitators, controllers: { registrations: 'facilitators/registrations', sessions: 'facilitators/sessions', invitations: 'facilitators/invitations' }
+  devise_for :facilitators, controllers:
+    {
+      registrations: 'facilitators/registrations',
+      sessions: 'facilitators/sessions',
+      invitations: 'facilitators/invitations' 
+    }
 
   root to: 'facilitator/pages#home'
   get '/home', to: 'pages#home'

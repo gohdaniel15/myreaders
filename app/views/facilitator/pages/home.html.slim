@@ -6,7 +6,7 @@
           - @projects.each do |project|
             .project-header
               p.pull-left = project.name.titleize
-              .dropdown.pull-right
+              .dropdown.pull-right.hoverable
                 = fa_icon :cog, data: { toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'dropdownMenu1'
                 ul.dropdown-menu.list-group
                   li = link_to 'Edit project details', edit_facilitator_project_path(project)
@@ -14,12 +14,16 @@
             .project-sessions.text-center
               h1 = project.sessions.count
               p Number of sessions
-            .project-reading-progress.text-center
-              h1
-              p Average reading progress
+            / .project-reading-progress.text-center
+            /   h1
+            /   p Average reading progress
 
     .col-sm-6
       .panel.panel-default
         .panel-heading
           |  Newsfeed
         .panel-body
+          .text-center
+            = image_tag('wrench', size: '150x150')
+            p.notice We're working on it.
+            p.notice This feature is coming soon.

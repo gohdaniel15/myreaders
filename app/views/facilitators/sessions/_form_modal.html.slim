@@ -3,10 +3,10 @@
     .modal-content
       .modal-header
         .container-fluid
-          .row
-            .col-xs-4.col-xs-offset-4
-              = image_tag 'my-readers-logo.svg', class: 'text-center'
-            button.close aria-label="Close" data-dismiss="modal" type="button"
-              span aria-hidden="true"  ×
+          button.close aria-label="Close" data-dismiss="modal" type="button"
+            span aria-hidden="true"  ×
+          .row.text-center
+            .col-xs-12
+              = image_tag 'my-readers'
       .modal-body
         p body
