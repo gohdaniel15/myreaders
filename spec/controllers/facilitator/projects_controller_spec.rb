@@ -31,14 +31,22 @@ RSpec.describe Facilitator::ProjectsController, type: :controller do
 
     describe 'POST #create' do
 
+      let(:project_creation_form) { instance_double(ProjectCreationForm) }
+
       before { post :create, project_creation_form: params }
 
       context 'when params are valid' do
 
         let(:params) { { project_attributes: attributes_for(:project) } }
+        let(:project_attributes) { attributes_for(:project).merge(student_attributes) }
+        let(:student_attributes) { { student_attributes: attributes_for(:student) } }
 
-        it { is_expected.to redirect_to(root_path) }
-        it { is_expected.to set_flash[:success] }
+        it do
+          allow(ProjectCreationForm).to receive(:new).with(facilitator, params) { project_creation_form }
+          allow(project_creation_form).to receive(:save) { true }
+          is_expected.to redirect_to(root_path)
+          is_expected.to set_flash[:success]
+        end
 
       end
 

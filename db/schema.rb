@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161115145453) do
+ActiveRecord::Schema.define(version: 20170318075108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,19 @@ ActiveRecord::Schema.define(version: 20161115145453) do
 
   add_index "attendances", ["session_id"], name: "index_attendances_on_session_id", using: :btree
   add_index "attendances", ["student_id"], name: "index_attendances_on_student_id", using: :btree
+
+  create_table "diagnostics", force: :cascade do |t|
+    t.string   "type",                   null: false
+    t.integer  "student_id",             null: false
+    t.integer  "project_id",             null: false
+    t.integer  "score",      default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "diagnostics", ["project_id"], name: "index_diagnostics_on_project_id", using: :btree
+  add_index "diagnostics", ["student_id", "project_id"], name: "index_diagnostics_on_student_id_and_project_id", unique: true, using: :btree
+  add_index "diagnostics", ["student_id"], name: "index_diagnostics_on_student_id", using: :btree
 
   create_table "facilitators", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -129,6 +142,8 @@ ActiveRecord::Schema.define(version: 20161115145453) do
 
   add_foreign_key "attendances", "sessions"
   add_foreign_key "attendances", "students"
+  add_foreign_key "diagnostics", "projects"
+  add_foreign_key "diagnostics", "students"
   add_foreign_key "projects", "facilitators"
   add_foreign_key "sessions", "projects"
   add_foreign_key "students", "projects"

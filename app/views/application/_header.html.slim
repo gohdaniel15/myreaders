@@ -12,14 +12,12 @@ header#header
         = link_to root_path do
           = image_tag 'my-readers.png', alt: 'My Readers Logo'
 
-
       .collapse.navbar-collapse
 
         .navbar-right
 
           ul.nav.navbar-nav
             li = link_to 'Projects', facilitator_projects_path
-            li = link_to 'Button 2', '#'
             - if current_facilitator
               li = link_to 'Logout', destroy_facilitator_session_path, method: 'delete', remote: true
             - else

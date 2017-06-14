@@ -16,7 +16,7 @@ class Facilitators::SessionsController < Devise::SessionsController
     if resource
       set_flash_message!(:notice, :signed_in)
       sign_in(resource_name, resource)
-      redirect_to root_path, turbolinks: true
+      redirect_to facilitator_root_path, turbolinks: true
     else
       @resource = resource_class.new(sign_in_params).tap { |r| r.errors.add(:base, 'Invalid email/password') }
       render :new

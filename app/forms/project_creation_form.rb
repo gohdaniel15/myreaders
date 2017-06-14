@@ -8,13 +8,11 @@ class ProjectCreationForm < BaseForm
 
   def initialize(facilitator, params = {})
     @facilitator = facilitator
-    @project = @facilitator.projects.new
+    @project = @facilitator.projects.build
     super(params)
-    @project.students.build if @project.students.blank?
   end
 
   def save
-    @project.students.first.destroy if @project.students.first.name.nil?
     @project.save if valid?
     errors.empty?
   end
