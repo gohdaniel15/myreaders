@@ -27,3 +27,5 @@ coverage/
 .idea*
 
 .ruby-version
+
+.DS_Store

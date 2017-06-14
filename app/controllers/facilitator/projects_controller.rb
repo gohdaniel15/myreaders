@@ -44,11 +44,11 @@ class Facilitator::ProjectsController < Facilitator::BaseController
   end
 
   def project_creation_params
-    params.require(:project_creation_form).permit(project_attributes: [:name, :location, :start_on, students_attributes: [:id, :name, :class_name, :birthday, :comments, :_destroy]])
+    params.require(:project_creation_form).permit(project_attributes: [:name, :location, :start_on, :end_on, :status, students_attributes: [:id, :name, :class_name, :birthday, :comments, :_destroy]])
   end
 
   def project_modification_params
-    params.require(:project_modification_form).permit(project_attributes: [:name, :location, :start_on, students_attributes: [:id, :name, :class_name, :birthday, :comments, :_destroy]])
+    params.require(:project_modification_form).permit(project_attributes: [:name, :location, :start_on, :end_on, :status, students_attributes: [:id, :name, :class_name, :birthday, :comments, :_destroy]])
   end
 
 end
