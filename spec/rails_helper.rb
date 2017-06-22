@@ -5,11 +5,11 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'simplecov'
 
+SimpleCov.start
+
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 ActiveRecord::Migration.maintain_test_schema!
-
-SimpleCov.start
 
 Shoulda::Matchers.configure do |config|
  config.integrate do |with|

@@ -7,6 +7,12 @@ Literacy Portal
 [![Test Coverage](https://codeclimate.com/github/gohdaniel15/myreaders/badges/coverage.svg)](https://codeclimate.com/github/gohdaniel15/myreaders/coverage)
 [![Issue Count](https://codeclimate.com/github/gohdaniel15/myreaders/badges/issue_count.svg)](https://codeclimate.com/github/gohdaniel15/myreaders)
 
+## Description
+
+MyReaders is a literacy programme started by TeachForMalaysia alumni that is currently adopted and run in select schools in Malaysia. This literacy portal aims to provide an avenue for facilitators of this programme to add and track diagnostic data from the students in the programme.
+
+The portal also has an admin interface, where the programme owners can log in and view diagnostic data across participating schools.
+
 ## System Dependencies
 
 1. [PostgreSQL](https://www.postgresql.org/) at least version 9.4
@@ -36,6 +42,10 @@ Literacy Portal
   ```
 
 4. Setup Database
+
+  ```bash
+  cp config/database.yml.sample config/database.yml
+  ```
 
   ```bash
   rake db:setup
