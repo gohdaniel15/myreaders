@@ -51,8 +51,8 @@ GEM
     builder (3.2.2)
     byebug (9.0.5)
     cocoon (1.2.9)
-    codeclimate-test-reporter (0.6.0)
-      simplecov (>= 0.7.1, < 1.0.0)
+    codeclimate-test-reporter (1.0.8)
+      simplecov (<= 0.13)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -270,7 +270,7 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails (~> 4.17.42)
   byebug
   cocoon
-  codeclimate-test-reporter
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.1.0)
   devise
   devise_invitable
