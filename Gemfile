@@ -95,7 +95,7 @@ group :test do
   gem 'simplecov', require: false
 
   # Automated code review
-  gem 'codeclimate-test-reporter'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
 
   # One-liner RSpec helper
   gem 'shoulda-matchers'
